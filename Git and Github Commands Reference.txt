@@ -1,0 +1,44 @@
+sudo apt-get update
+sudo apt-get install git
+
+git --version
+
+git config --global user.name "Your GitHub Username"
+git config --global user.email "your-email@example.com"
+
+
+cd /path/to/your/website/code
+
+
+git init
+git add .
+git commit -m "Initial commit of my website"
+git remote add origin https://github.com/YourGitHubUsername/YourRepositoryName.git
+git push -u origin master
+
+Enter Git Username and Token (not password)
+
+
+# Caching Your Credentials
+
+git config --global credential.helper cache
+git config --global credential.helper store
+git push -u origin master
+The operation should succeed without further credential prompts if you've cached your credentials.
+
+
+#The error you're encountering occurs because the remote repository on GitHub contains changes (like the README file you added through the web interface) that are not present in your local repository. Git is preventing you from pushing to avoid overwriting those changes.
+
+git pull origin master
+git commit -m "Merged changes from remote repository"
+git push -u origin master
+
+
+# I have created a new file in ubuntu instance and I want to push all the updated files to repo
+
+cd /path/to/your/repository
+git add new-file-name   or  git add .
+git commit -m "Added new file and updated existing files"
+Optional: git pull origin master
+git push origin master
+
